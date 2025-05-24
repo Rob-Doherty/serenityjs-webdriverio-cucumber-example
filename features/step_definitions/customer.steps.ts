@@ -47,6 +47,6 @@ Then('{actor} sees the WhiteBox IT Solutions homepage', async (actor: Actor) => 
 Then('{actor} sees the GitHub page', async (actor: Actor) => {
     await actor.attemptsTo(
         Ensure.that(Page.current().title(), includes('GitHub')),
-        Ensure.that(Page.current().url().pathname, includes('github.com/Rob-Doherty')),
+        Ensure.that(Page.current().url().pathname, includes('/Rob-Doherty')),
     )
 });
