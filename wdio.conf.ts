@@ -1,8 +1,4 @@
-import { ArtifactArchiver } from '@serenity-js/core';
-import { ConsoleReporter } from '@serenity-js/console-reporter';
-import { SerenityBDDReporter } from '@serenity-js/serenity-bdd';
 import { WebdriverIOConfig } from '@serenity-js/webdriverio';
-import { Photographer, TakePhotosOfFailures } from '@serenity-js/web';
 import { Actors } from './test_source';
 
 export const config: WebdriverIOConfig = {
@@ -12,11 +8,13 @@ export const config: WebdriverIOConfig = {
         actors: new Actors(),
         runner: 'cucumber',
         crew: [
-            ArtifactArchiver.storingArtifactsAt(process.cwd(), './target/site/serenity'),
-            ConsoleReporter.forDarkTerminals(),
-            new SerenityBDDReporter(),
-            Photographer.whoWill(TakePhotosOfFailures),
-        ]
+            '@serenity-js/console-reporter',
+            '@serenity-js/serenity-bdd',
+            [ '@serenity-js/core:ArtifactArchiver', { outputDirectory: 'target/site/serenity' } ],
+            [ '@serenity-js/web:Photographer', {
+                strategy: 'TakePhotosOfFailures',
+                // strategy: 'TakePhotosOfInteractions',
+            } ]        ]
     },
 
     cucumberOpts: {
