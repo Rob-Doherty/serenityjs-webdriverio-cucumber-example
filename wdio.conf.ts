@@ -10,7 +10,7 @@ export const config: WebdriverIOConfig = {
         crew: [
             '@serenity-js/console-reporter',
             '@serenity-js/serenity-bdd',
-            [ '@serenity-js/core:ArtifactArchiver', { outputDirectory: 'target/site/serenity' } ],
+            [ '@serenity-js/core:ArtifactArchiver', { outputDirectory: 'target/site/serenity/' + process.env.TEST_RUN_TIMESTAMP} ],
             [ '@serenity-js/web:Photographer', {
                 strategy: 'TakePhotosOfFailures',
                 // strategy: 'TakePhotosOfInteractions',

@@ -4,10 +4,10 @@
   "description": "Example usage of SerenityJS test framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "serenity-bdd update",
-    "test": "yarn test:execute && yarn test:report",
+    "test": "export TEST_RUN_TIMESTAMP=\"$(date +\"%y%m%d-%H%M%S\")\" && yarn test:execute && yarn test:report",
     "test:execute": "wdio wdio.conf.ts",
-    "test:report": "serenity-bdd run --features ./features"
+    "test:report": "serenity-bdd run --source=\"target/site/serenity/\"$(echo $TEST_RUN_TIMESTAMP)\"\" --destination=\"target/site/serenity/\"$(echo $TEST_RUN_TIMESTAMP)\"\"",
+    "test:pipeline": "yarn test:execute && yarn test:report"
   },
   "repository": {
     "type": "git",
