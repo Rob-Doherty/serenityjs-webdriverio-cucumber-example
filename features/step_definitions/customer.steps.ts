@@ -1,5 +1,5 @@
 import { Actor, actorCalled } from '@serenity-js/core';
-import { defineParameterType, Given, When, Then } from '@cucumber/cucumber';
+import { defineParameterType, When, Then } from '@cucumber/cucumber';
 import { Ensure, includes, equals } from '@serenity-js/assertions';
 import { Navigate, Page, PageElement, Text, By, Click } from '@serenity-js/web';
 

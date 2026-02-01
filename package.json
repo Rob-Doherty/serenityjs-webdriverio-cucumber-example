@@ -4,11 +4,15 @@
   "description": "Example usage of SerenityJS test framework",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "export TEST_RUN_TIMESTAMP=\"$(date +\"%y%m%d-%H%M%S\")\" && yarn test:execute && yarn test:report",
     "test:execute": "wdio wdio.conf.ts",
     "test:report": "serenity-bdd run --source=\"target/site/serenity/\"$(echo $TEST_RUN_TIMESTAMP)\"\" --destination=\"target/site/serenity/\"$(echo $TEST_RUN_TIMESTAMP)\"\"",
     "test:pipeline": "yarn test:execute && yarn test:report"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rob-Doherty/serenityjs-example.git"
@@ -21,6 +25,7 @@
   "homepage": "https://github.com/Rob-Doherty/serenityjs-example#readme",
   "devDependencies": {
     "@cucumber/cucumber": "^12.6.0",
+    "@eslint/js": "^9.39.2",
     "@serenity-js/console-reporter": "^3.37.2",
     "@serenity-js/core": "^3.37.2",
     "@serenity-js/cucumber": "^3.37.2",
@@ -35,8 +40,12 @@
     "@wdio/spec-reporter": "^9.23.2",
     "@wdio/types": "^9.23.2",
     "chromedriver": "^144.0.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "pre-commit": "^1.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1",
     "wdio-chromedriver-service": "^8.1.1",
     "webdriverio": "^9.23.2"
   }
