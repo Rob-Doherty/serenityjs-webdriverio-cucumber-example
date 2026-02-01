@@ -14,7 +14,7 @@ Example a SerenityJS test framework using WebdriverIO and Cucumber.
   - creates report at `./target/site/serenity/[timestamp]/index.html`
 - wdio.conf.ts usage
 - screenshots on failure
-- setup linting (Eslint)
+- setup linting (Eslint) = `yarn lint`
   - auto triggered on pre-commit
 
 ## TODO:
