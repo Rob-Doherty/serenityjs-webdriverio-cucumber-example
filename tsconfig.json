@@ -16,7 +16,8 @@
 
   "include": [
     "features/**/*.ts",
-    "test_source/**/*.ts"
+    "test_source/**/*.ts",
+    "wdio.conf.ts"
   ],
 
   "exclude": [
