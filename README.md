@@ -14,10 +14,10 @@ Example a SerenityJS test framework using WebdriverIO and Cucumber.
   - creates report at `./target/site/serenity/[timestamp]/index.html`
 - wdio.conf.ts usage
 - screenshots on failure
+- setup linting (Eslint)
+  - auto triggered on pre-commit
 
 ## TODO:
-- setup linting (Eslint)
-    - auto triggered on pre-commit
 - Screenplay pattern example
 - parallel test example
 - CircleCI test pipelines
